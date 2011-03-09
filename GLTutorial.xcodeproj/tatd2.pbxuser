@@ -1,0 +1,108 @@
+// !$*UTF8*$!
+{
+	1F9DEA5C1311889F009DFCEC /* GLTutorial */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = GLTutorial;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	1F9DEA67131188A7009DFCEC /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	1F9DEA68131188A7009DFCEC /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	1F9DEA6A13118C8C009DFCEC /* GLTutorialController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 828}}";
+			sepNavSelRange = "{1447, 0}";
+			sepNavVisRange = "{0, 1447}";
+			sepNavWindowFrame = "{{119, 4}, {1135, 874}}";
+		};
+	};
+	1F9DEA6B13118C8C009DFCEC /* GLTutorialController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1050, 3180}}";
+			sepNavSelRange = "{2896, 0}";
+			sepNavVisRange = "{1562, 562}";
+			sepNavWindowFrame = "{{15, 4}, {1135, 874}}";
+		};
+	};
+	1F9DEB0A1311984F009DFCEC /* Shader.fsh */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 770}}";
+			sepNavSelRange = "{60, 7}";
+			sepNavVisRange = "{0, 71}";
+			sepNavWindowFrame = "{{305, 4}, {1135, 874}}";
+		};
+	};
+	1F9DEB0D1311987D009DFCEC /* Shader.vsh */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 747}}";
+			sepNavSelRange = "{201, 0}";
+			sepNavVisRange = "{0, 201}";
+			sepNavWindowFrame = "{{15, 4}, {1135, 874}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 1F9DEA5C1311889F009DFCEC /* GLTutorial */;
+		activeTarget = 8D1107260486CEB800E47090 /* GLTutorial */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* GLTutorial */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 1F9DEA68131188A7009DFCEC /* Code sense */;
+		executables = (
+			1F9DEA5C1311889F009DFCEC /* GLTutorial */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 321019443;
+			PBXWorkspaceStateSaveDate = 321019443;
+		};
+		sourceControlManager = 1F9DEA67131188A7009DFCEC /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D1107260486CEB800E47090 /* GLTutorial */ = {
+		activeExec = 0;
+		executables = (
+			1F9DEA5C1311889F009DFCEC /* GLTutorial */,
+		);
+	};
+}
