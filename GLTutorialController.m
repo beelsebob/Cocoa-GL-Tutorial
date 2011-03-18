@@ -251,7 +251,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     eglGetError();
     
     GLfloat timeValue = (GLfloat)(time.videoTime) / (GLfloat)(time.videoTimeScale);
-    Vector2 p = { .x = 0.5f * sin(timeValue), .y = 0.5f * cos(timeValue) };
+    Vector2 p = { .x = 0.5f * sinf(timeValue), .y = 0.5f * cosf(timeValue) };
     glUniform2fv(positionUniform, 1, (const GLfloat *)&p);
     eglGetError();
     
