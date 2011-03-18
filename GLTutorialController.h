@@ -62,6 +62,10 @@ typedef struct
 @private
     CVDisplayLinkRef displayLink;
     
+    NSOpenGLView *view;
+    
+    BOOL isFirstRender;
+    
     GLuint shaderProgram;
     GLuint vertexBuffer;
     

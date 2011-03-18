@@ -45,6 +45,8 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 
 - (void)awakeFromNib
 {
+    isFirstRender = YES;
+    
     [self createOpenGLResources];
     [self createDisplayLink];
 }
@@ -68,7 +70,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 
 - (void)createOpenGLResources
 {
-    [[self.view openGLContext] makeCurrentContext];
+    [[[self view] openGLContext] makeCurrentContext];
     
     [self loadShader];
     [self loadBufferData];
@@ -240,7 +242,16 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 
 - (void)renderForTime:(CVTimeStamp)time
 {
-    [[self.view openGLContext] makeCurrentContext];
+    if (!isFirstRender)
+    {
+        [[[self view] openGLContext] flushBuffer];
+    }
+    else
+    {
+        isFirstRender = NO;
+    }
+    
+    [[[self view] openGLContext] makeCurrentContext];
     
     glClearColor(0.0, 0.0, 0.0, 1.0);
     eglGetError();
@@ -257,8 +268,6 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     eglGetError();
-    
-    [[self.view openGLContext] flushBuffer];
 }
 
 - (void)dealloc
@@ -270,7 +279,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     CVDisplayLinkStop(displayLink);
     CVDisplayLinkRelease(displayLink);
-    [self.view release];
+    [view release];
     
     [super dealloc];
 }
