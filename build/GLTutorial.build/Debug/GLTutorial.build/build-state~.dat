@@ -1,255 +1,0 @@
-TGLTutorial
-v7
-r3
-t319919347.886860
-cCheck dependencies
-cProcessInfoPlistFile /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Info.plist GLTutorial-Info.plist
-cCopyStringsFile /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-cCompileXIB /Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib
-cProcessPCH /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch.gch GLTutorial_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-
-N/Developer/SDKs/MacOSX10.6.sdk
-c000000004D3A477300000000000000EE
-t1295665011
-s238
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
-c000000004D3A47C6000000000001C4E4
-t1295665094
-s115940
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CoreVideo.h
-c000000004CC411EA00000000000003EF
-t1287918058
-s1007
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGL.h
-c000000004BD2501F0000000000001659
-t1272074271
-s5721
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
-c000000004D3A47C7000000000000DB14
-t1295665095
-s56084
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000004A1F2D63000000000000A5E0
-t1243557219
-s42464
-
-N/Users/tatd2/Desktop/GLTutorial/English.lproj/InfoPlist.strings
-c000000004D61511F000000000000002D
-t1298223391
-s45
-
-N/Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib
-c000000004D6157B6000000000002D612
-t1298225078
-s185874
-
-N/Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.h
-c000000004D61511F0000000000000149
-t1298223391
-s329
-i<Cocoa/Cocoa.h>
-
-N/Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m
-c000000004D61511F0000000000000181
-t1298223391
-s385
-i"GLTutorialAppDelegate.h"
-
-N/Users/tatd2/Desktop/GLTutorial/GLTutorialController.h
-c000000004D615BE30000000000000239
-t1298226147
-s569
-i<Cocoa/Cocoa.h>
-i<CoreVideo/CoreVideo.h>
-i<OpenGL/OpenGL.h>
-
-N/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m
-c000000004D615D5C000000000000152F
-t1298226524
-s5423
-i"GLTutorialController.h"
-
-N/Users/tatd2/Desktop/GLTutorial/GLTutorial_Prefix.pch
-c000000004D61511F0000000000000097
-t1298223391
-s151
-i<Cocoa/Cocoa.h>
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app
-t2
-s0
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Info.plist
-t1298226542
-s1417
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/MacOS/GLTutorial
-t2
-s0
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/PkgInfo
-t1298226542
-s8
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/InfoPlist.strings
-t1298226544
-s92
-
-N/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/MainMenu.nib
-t1298226544
-s35208
-
-N/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorial.LinkFileList
-c000000004D615D6E0000000000000162
-t1298226542
-s354
-
-N/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialAppDelegate.o
-t2
-s0
-
-N/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialController.o
-t2
-s0
-
-N/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/main.o
-t2
-s0
-
-N/Users/tatd2/Desktop/GLTutorial/main.m
-c000000004D61511F0000000000000105
-t1298223391
-s261
-i<Cocoa/Cocoa.h>
-
-N/var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch.gch
-t2
-s0
-
-NGLTutorial-Info.plist
-c000000004D61511F00000000000003EA
-t1298223391
-s1002
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies319919342#319919342#0(0"0(0#1#0"8639384160#0"0#
-
-CCompileC build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialAppDelegate.o /Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s319917865.850137
-e319917866.070187
-r1
-xCompileC
-xbuild/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialAppDelegate.o
-x/Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m319917865#319917866#0(0"0(0#0#55"/Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m8638157216#1467"    cd /Users/tatd2/Desktop/GLTutorial    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-generated-files.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-own-target-headers.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-all-target-headers.hmap -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-project-headers.hmap -F/Users/tatd2/Desktop/GLTutorial/build/Debug -I/Users/tatd2/Desktop/GLTutorial/build/Debug/include -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources/x86_64 -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources -include /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch -c /Users/tatd2/Desktop/GLTutorial/GLTutorialAppDelegate.m -o /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialAppDelegate.o0#
-
-CCompileC build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialController.o /Users/tatd2/Desktop/GLTutorial/GLTutorialController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s319919325.142588
-e319919325.327920
-r1
-xCompileC
-xbuild/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialController.o
-x/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m: In function '-[GLTutorialController loadShader]':
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: 'GLTutorialController' may not respond to '-compileShaderOfType:file:'
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: (Messages without a matching method signature
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: will be assumed to return 'id' and accept
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: '...' as arguments.)
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: assignment makes integer from pointer without a cast
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:79: warning: 'GLTutorialController' may not respond to '-compileShaderOfType:file:'
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:79: warning: assignment makes integer from pointer without a cast
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m: In function '-[GLTutorialController validateProgram:]':
-o/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:177: warning: control reaches end of non-void function
-lSLF07#2@62"Compile /Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919325#319919325#0(1161"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m: In function '-[GLTutorialController loadShader]':/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: 'GLTutorialController' may not respond to '-compileShaderOfType:file:'/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: (Messages without a matching method signature/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: will be assumed to return 'id' and accept/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: '...' as arguments.)/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:78: warning: assignment makes integer from pointer without a cast/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:79: warning: 'GLTutorialController' may not respond to '-compileShaderOfType:file:'/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:79: warning: assignment makes integer from pointer without a cast/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m: In function '-[GLTutorialController validateProgram:]':/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m:177: warning: control reaches end of non-void function6(22@70"'GLTutorialController' may not respond to '-compileShaderOfType:file:'319919325#106#139#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#78#0#78#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)319919325#245#114#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#78#0#78#0#0"0(22@52"Assignment makes integer from pointer without a cast319919325#558#121#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#78#0#78#0#0"0(22@70"'GLTutorialController' may not respond to '-compileShaderOfType:file:'319919325#679#139#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#79#0#79#0#26"'*' may not respond to '*'0(22@52"Assignment makes integer from pointer without a cast319919325#818#121#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#79#0#79#0#0"0(22@40"Control reaches end of non-void function319919325#1051#110#0(6@54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m319919324#177#0#177#0#40"control reaches end of non-void function0(0#0#54"/Users/tatd2/Desktop/GLTutorial/GLTutorialController.m8639257472#1465"    cd /Users/tatd2/Desktop/GLTutorial    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-generated-files.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-own-target-headers.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-all-target-headers.hmap -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-project-headers.hmap -F/Users/tatd2/Desktop/GLTutorial/build/Debug -I/Users/tatd2/Desktop/GLTutorial/build/Debug/include -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources/x86_64 -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources -include /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch -c /Users/tatd2/Desktop/GLTutorial/GLTutorialController.m -o /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorialController.o0#
-
-CCompileC build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/main.o /Users/tatd2/Desktop/GLTutorial/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s319917865.849112
-e319917866.022729
-r1
-xCompileC
-xbuild/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/main.o
-x/Users/tatd2/Desktop/GLTutorial/main.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@46"Compile /Users/tatd2/Desktop/GLTutorial/main.m319917865#319917866#0(0"0(0#0#38"/Users/tatd2/Desktop/GLTutorial/main.m8638299168#1433"    cd /Users/tatd2/Desktop/GLTutorial    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-generated-files.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-own-target-headers.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-all-target-headers.hmap -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-project-headers.hmap -F/Users/tatd2/Desktop/GLTutorial/build/Debug -I/Users/tatd2/Desktop/GLTutorial/build/Debug/include -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources/x86_64 -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources -include /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch -c /Users/tatd2/Desktop/GLTutorial/main.m -o /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/main.o0#
-
-CCompileXIB /Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib
-s319919342.970792
-e319919344.231375
-r1
-xCompileXIB
-x/Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib
-o2011-02-20 18:29:04.163 ibtool[6151:607] *** WARNING: Method attributes in class NSOpenGLPixelFormat is obsolete and will be removed in a future release. ***
-o2011-02-20 18:29:04.164 ibtool[6151:607] *** WARNING: Method setAttributes: in class NSOpenGLPixelFormat is obsolete and will be removed in a future release. ***
-lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib319919342#319919344#0(320"2011-02-20 18:29:04.163 ibtool[6151:607] *** WARNING: Method attributes in class NSOpenGLPixelFormat is obsolete and will be removed in a future release. ***2011-02-20 18:29:04.164 ibtool[6151:607] *** WARNING: Method setAttributes: in class NSOpenGLPixelFormat is obsolete and will be removed in a future release. ***0(0#0#58"/Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib8634951264#346"    cd /Users/tatd2/Desktop/GLTutorial    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/MainMenu.nib /Users/tatd2/Desktop/GLTutorial/English.lproj/MainMenu.xib --sdk /Developer/SDKs/MacOSX10.6.sdk0#
-
-CCopyStringsFile /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-s319919342.970098
-e319919344.084261
-r1
-xCopyStringsFile
-x/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj/InfoPlist.strings
-xEnglish.lproj/InfoPlist.strings
-lSLF07#2@36"Copy English.lproj/InfoPlist.strings319919342#319919344#0(0"0(0#0#63"/Users/tatd2/Desktop/GLTutorial/English.lproj/InfoPlist.strings8635391232#354"    cd /Users/tatd2/Desktop/GLTutorial    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Resources/English.lproj0#
-
-CLd /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/MacOS/GLTutorial normal x86_64
-s319919325.327993
-e319919325.463169
-r1
-xLd
-x/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/MacOS/GLTutorial
-xnormal
-xx86_64
-lSLF07#2@89"Link /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/MacOS/GLTutorial319919325#319919325#0(0"0(0#0#0"8638941504#561"    cd /Users/tatd2/Desktop/GLTutorial    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/tatd2/Desktop/GLTutorial/build/Debug -F/Users/tatd2/Desktop/GLTutorial/build/Debug -filelist /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/Objects-normal/x86_64/GLTutorial.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework CoreVideo -framework OpenGL -o /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/MacOS/GLTutorial0#
-
-CProcessInfoPlistFile /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Info.plist GLTutorial-Info.plist
-s319919342.917900
-e319919342.970022
-r1
-xProcessInfoPlistFile
-x/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Info.plist
-xGLTutorial-Info.plist
-lSLF07#2@29"Process GLTutorial-Info.plist319919342#319919342#0(0"0(0#0#53"/Users/tatd2/Desktop/GLTutorial/GLTutorial-Info.plist8637646944#298"    cd /Users/tatd2/Desktop/GLTutorial    builtin-infoPlistUtility GLTutorial-Info.plist -genpkginfo /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app/Contents/Info.plist0#
-
-CProcessPCH /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch.gch GLTutorial_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s319919344.231466
-e319919347.886823
-r0
-xProcessPCH
-x/var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch.gch
-xGLTutorial_Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@32"Precompile GLTutorial_Prefix.pch319919344#319919347#0(0"0(0#0#53"/Users/tatd2/Desktop/GLTutorial/GLTutorial_Prefix.pch8640499360#1343"    cd /Users/tatd2/Desktop/GLTutorial    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-generated-files.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-own-target-headers.hmap -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-all-target-headers.hmap -iquote /Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/GLTutorial-project-headers.hmap -F/Users/tatd2/Desktop/GLTutorial/build/Debug -I/Users/tatd2/Desktop/GLTutorial/build/Debug/include -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources/x86_64 -I/Users/tatd2/Desktop/GLTutorial/build/GLTutorial.build/Debug/GLTutorial.build/DerivedSources -c /Users/tatd2/Desktop/GLTutorial/GLTutorial_Prefix.pch -o /var/folders/7L/7LQsjh5AEp0prycmOZPinU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLTutorial_Prefix-ffvppkeehoguvmcpihstgvgjcwav/GLTutorial_Prefix.pch.gch2#
-
-CTouch /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app
-s319919325.463241
-e319919325.465478
-r1
-xTouch
-x/Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app
-lSLF07#2@64"Touch /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app319919325#319919325#0(0"0(0#0#0"8655617856#120"    cd /Users/tatd2/Desktop/GLTutorial    /usr/bin/touch -c /Users/tatd2/Desktop/GLTutorial/build/Debug/GLTutorial.app0#
-
