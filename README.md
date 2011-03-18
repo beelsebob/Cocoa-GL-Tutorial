@@ -90,16 +90,18 @@ When we draw using the modern programmable pipeline we always need to give the G
 1. *Vertex shading* - Telling the GPU how to transform our mesh data to display it.
 2. *Fragment shading* - Telling the GPU how to colour in each pixel, on each polygon we draw.
 
-Lets start by having a look at our vertex shader.  The vertex shader runs once for each vertex we ask the GPU to render.  We start by declaring our inputs and outputs.  First, we define an input that is *uniform* across all vertices.  We'll see later that we pass a value into our uniform once for the entire data set.  In this instance, the uniform contains a 2 dimensional vector telling us where we want to render our quad.
+Lets start by having a look at our vertex shader.  The vertex shader runs once for each vertex we ask the GPU to render.  We start by declaring our inputs and outputs.  The inputs to our vertex shader are passed in from our OpenGL code when we render.  And we need somewhere for them to arrive.
+
+First, we define an input that is *uniform* across all vertices.  We'll see later that we pass a value into our uniform once for the entire data set.  In this instance, the uniform contains a 2 dimensional vector telling us where we want to render our quad.
 
     uniform vec2 p;
 
-Next we define our vertex attributes.  This is where the data we want to be rendered get passed in.  In our case we want each vertex on our quad to have a position and a colour, so we define our two attributes:
+Next we define our vertex *attributes*.  Attributes are unique to each vertex.  This is where the data we want to be rendered get passed in.  In our case we want each vertex on our quad to have a position and a colour, so we define our two attributes:
 
     attribute vec4 position;
     attribute vec4 colour;
 
-Finally, when OpenGL renders our quad, it's going to walk across the polygons we provide colouring pixels.  For each pixel we want a bunch of values that *vary* depending on where they are.  Our varyings are outputs for each vertex.  We want to colour each pixel differently, so we declare a single varying output, the colour.
+Finally, when OpenGL renders our quad, it's going to walk across the polygons we provide colouring pixels.  For each pixel we want a bunch of values that *vary* depending on where they are.  Our varyings are the outputs of the vertex shader, and are passed into the fragment shader to use to determine the fragment colour.  We want to colour each pixel differently, so we declare a single varying output, the colour.
 
     varying vec4 colourV;
 
