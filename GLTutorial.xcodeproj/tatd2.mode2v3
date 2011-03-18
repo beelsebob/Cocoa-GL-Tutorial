@@ -293,7 +293,6 @@
 									<array>
 										<array>
 											<integer>5</integer>
-											<integer>1</integer>
 											<integer>0</integer>
 										</array>
 									</array>
@@ -460,8 +459,8 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>1F32FB1013225E36001C560A</string>
-				<string>1F32FB1113225E36001C560A</string>
+				<string>1FDDB47613339BCE00334023</string>
+				<string>1FDDB47713339BCE00334023</string>
 				<string>1C9437FD063B20B00039CFAC</string>
 				<string>1C9437FE063B20B00039CFAC</string>
 				<string>1C9437FF063B20B00039CFAC</string>
@@ -481,7 +480,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>321019447.87673098</real>
+	<real>322149326.42954099</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -499,7 +498,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1C530D52069F1CE1000CFCEE</string>
-		<string>/Users/tatd2/Desktop/GLTutorial/GLTutorial.xcodeproj</string>
+		<string>/Users/tatd2/Documents/Personal/GLTutorial/GLTutorial.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>994 459 446 419 0 0 1440 878 </string>
@@ -716,7 +715,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D52069F1CE1000CFCEE</string>
-				<string>1F32FB1213225E36001C560A</string>
+				<string>1FDDB47813339BCE00334023</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
