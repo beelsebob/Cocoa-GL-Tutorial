@@ -105,7 +105,7 @@ Finally, when OpenGL renders our quad, it's going to walk across the polygons we
 
     varying vec4 colourV;
 
-Now that we've declared our inputs and outputs, we define our program.  We pass the vertex colours through, while for the position, we add the quad position vector to the position of the vertex we're dealing with:
+Now that we've declared our inputs and outputs, we define our program.  We pass the vertex colours through.  For positions, we use the overloaded vec4 constructor to create a 4 dimensional vector from the uniform offset p, we then add that to the position of the vertex we're dealing with:
 
     void main (void)
     {
