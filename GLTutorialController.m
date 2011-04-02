@@ -98,10 +98,22 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
         
         positionUniform   = glGetUniformLocation(shaderProgram, "p"       );
         eglGetError();
-        colourAttribute   = glGetAttribLocation (shaderProgram, "colour"  );
+        if (positionUniform < 0)
+        {
+            [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
+        }
+        colourAttribute   = glGetAttribLocation(shaderProgram, "colour"  );
         eglGetError();
-        positionAttribute = glGetAttribLocation (shaderProgram, "position");
+        if (colourAttribute < 0)
+        {
+            [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
+        }
+        positionAttribute = glGetAttribLocation(shaderProgram, "position");
         eglGetError();
+        if (positionAttribute < 0)
+        {
+            [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
+        }
         
         glDeleteShader(vertexShader  );
         eglGetError();

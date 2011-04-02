@@ -157,10 +157,22 @@ Once we have linked the program, we ask OpenGL to tell us about the uniforms and
 
             positionUniform   = glGetUniformLocation(shaderProgram, "p"       );
             eglGetError();
+            if (positionUniform < 0)
+            {
+                [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
+            }
             colourAttribute   = glGetAttribLocation (shaderProgram, "colour"  );
             eglGetError();
+            if (colourAttribute < 0)
+            {
+                [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
+            }
             positionAttribute = glGetAttribLocation (shaderProgram, "position");
             eglGetError();
+            if (positionAttribute < 0)
+            {
+                [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
+            }
 
 Finally, we delete the temporary compiled object code, as we've now successfully linked it into a shader program.
 
