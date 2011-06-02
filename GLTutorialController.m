@@ -8,6 +8,8 @@
 
 #import "GLTutorialController.h"
 
+#import "error.h"
+
 typedef struct
 {
     Vector4 position;
@@ -87,38 +89,38 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     if (0 != vertexShader && 0 != fragmentShader)
     {
         shaderProgram = glCreateProgram();
-        eglGetError();
+        GetError();
         
         glAttachShader(shaderProgram, vertexShader  );
-        eglGetError();
+        GetError();
         glAttachShader(shaderProgram, fragmentShader);
-        eglGetError();
+        GetError();
         
         [self linkProgram:shaderProgram];
         
         positionUniform   = glGetUniformLocation(shaderProgram, "p"       );
-        eglGetError();
+        GetError();
         if (positionUniform < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
         }
         colourAttribute   = glGetAttribLocation(shaderProgram, "colour"  );
-        eglGetError();
+        GetError();
         if (colourAttribute < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
         }
         positionAttribute = glGetAttribLocation(shaderProgram, "position");
-        eglGetError();
+        GetError();
         if (positionAttribute < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
         }
         
         glDeleteShader(vertexShader  );
-        eglGetError();
+        GetError();
         glDeleteShader(fragmentShader);
-        eglGetError();
+        GetError();
     }
     else
     {
@@ -137,22 +139,22 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     }
     
     shader = glCreateShader(type);
-    eglGetError();
+    GetError();
     glShaderSource(shader, 1, &source, NULL);
-    eglGetError();
+    GetError();
     glCompileShader(shader);
-    eglGetError();
+    GetError();
     
 #if defined(DEBUG)
     GLint logLength;
     
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
-    eglGetError();
+    GetError();
     if (logLength > 0)
     {
         GLchar *log = malloc((size_t)logLength);
         glGetShaderInfoLog(shader, logLength, &logLength, log);
-        eglGetError();
+        GetError();
         NSLog(@"Shader compilation failed with error:\n%s", log);
         free(log);
     }
@@ -160,11 +162,11 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     GLint status;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-    eglGetError();
+    GetError();
     if (0 == status)
     {
         glDeleteShader(shader);
-        eglGetError();
+        GetError();
         [NSException raise:kFailedToInitialiseGLException format:@"Shader compilation failed for file %@", file];
     }
     
@@ -174,18 +176,18 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 - (void)linkProgram:(GLuint)program
 {
     glLinkProgram(program);
-    eglGetError();
+    GetError();
     
 #if defined(DEBUG)
     GLint logLength;
     
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
-    eglGetError();
+    GetError();
     if (logLength > 0)
     {
         GLchar *log = malloc((size_t)logLength);
         glGetProgramInfoLog(program, logLength, &logLength, log);
-        eglGetError();
+        GetError();
         NSLog(@"Shader program linking failed with error:\n%s", log);
         free(log);
     }
@@ -193,7 +195,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     GLint status;
     glGetProgramiv(program, GL_LINK_STATUS, &status);
-    eglGetError();
+    GetError();
     if (0 == status)
     {
         [NSException raise:kFailedToInitialiseGLException format:@"Failed to link shader program"];
@@ -205,21 +207,21 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     GLint logLength;
     
     glValidateProgram(program);
-    eglGetError();
+    GetError();
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
-    eglGetError();
+    GetError();
     if (logLength > 0)
     {
         GLchar *log = malloc((size_t)logLength);
         glGetProgramInfoLog(program, logLength, &logLength, log);
-        eglGetError();
+        GetError();
         NSLog(@"Program validation produced errors:\n%s", log);
         free(log);
     }
     
     GLint status;
     glGetProgramiv(program, GL_VALIDATE_STATUS, &status);
-    eglGetError();
+    GetError();
     if (0 == status)
     {
         [NSException raise:kFailedToInitialiseGLException format:@"Failed to link shader program"];
@@ -236,20 +238,20 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     };
     
     glGenBuffers(1, &vertexBuffer);
-    eglGetError();
+    GetError();
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    eglGetError();
+    GetError();
     glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), vertexData, GL_STATIC_DRAW);
-    eglGetError();
+    GetError();
     
     glEnableVertexAttribArray((GLuint)positionAttribute);
-    eglGetError();
+    GetError();
     glEnableVertexAttribArray((GLuint)colourAttribute  );
-    eglGetError();
+    GetError();
     glVertexAttribPointer((GLuint)positionAttribute, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, position));
-    eglGetError();
+    GetError();
     glVertexAttribPointer((GLuint)colourAttribute  , 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, colour  ));
-    eglGetError();
+    GetError();
 }
 
 - (void)renderForTime:(CVTimeStamp)time
@@ -266,28 +268,28 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     [[[self view] openGLContext] makeCurrentContext];
     
     glClearColor(0.0, 0.0, 0.0, 1.0);
-    eglGetError();
+    GetError();
     glClear(GL_COLOR_BUFFER_BIT);
-    eglGetError();
+    GetError();
     
     glUseProgram(shaderProgram);
-    eglGetError();
+    GetError();
     
     GLfloat timeValue = (GLfloat)(time.videoTime) / (GLfloat)(time.videoTimeScale);
     Vector2 p = { .x = 0.5f * sinf(timeValue), .y = 0.5f * cosf(timeValue) };
     glUniform2fv(positionUniform, 1, (const GLfloat *)&p);
-    eglGetError();
+    GetError();
     
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    eglGetError();
+    GetError();
 }
 
 - (void)dealloc
 {
     glDeleteProgram(shaderProgram);
-    eglGetError();
+    GetError();
     glDeleteBuffers(1, &vertexBuffer);
-    eglGetError();
+    GetError();
     
     CVDisplayLinkStop(displayLink);
     CVDisplayLinkRelease(displayLink);
