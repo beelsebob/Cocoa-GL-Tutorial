@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		1F9B548113F16712003B9085 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B548013F16712003B9085 /* OpenGL.framework */; };
 		1F9DEA6C13118C8C009DFCEC /* GLTutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DEA6B13118C8C009DFCEC /* GLTutorialController.m */; };
 		1F9DEA9813118F56009DFCEC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DEA9713118F56009DFCEC /* CoreVideo.framework */; };
-		1F9DEAA413118F9D009DFCEC /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DEAA313118F9D009DFCEC /* OpenGL.framework */; };
 		1F9DEB0B1311984F009DFCEC /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F9DEB0A1311984F009DFCEC /* Shader.fsh */; };
 		1F9DEB0E1311987D009DFCEC /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F9DEB0D1311987D009DFCEC /* Shader.vsh */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -24,10 +24,10 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1F6911421398307500756365 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		1F9B548013F16712003B9085 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1F9DEA6A13118C8C009DFCEC /* GLTutorialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTutorialController.h; sourceTree = "<group>"; };
 		1F9DEA6B13118C8C009DFCEC /* GLTutorialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTutorialController.m; sourceTree = "<group>"; };
 		1F9DEA9713118F56009DFCEC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		1F9DEAA313118F9D009DFCEC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1F9DEB0A1311984F009DFCEC /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		1F9DEB0D1311987D009DFCEC /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		256AC3F00F4B6AF500CF3369 /* GLTutorial_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTutorial_Prefix.pch; sourceTree = "<group>"; };
@@ -43,9 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9B548113F16712003B9085 /* OpenGL.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1F9DEA9813118F56009DFCEC /* CoreVideo.framework in Frameworks */,
-				1F9DEAA413118F9D009DFCEC /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,9 +64,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F9B548013F16712003B9085 /* OpenGL.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1F9DEA9713118F56009DFCEC /* CoreVideo.framework */,
-				1F9DEAA313118F9D009DFCEC /* OpenGL.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -265,6 +265,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = "GLTutorial-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
 					"-Xclang",
 					"-fobjc-nonfragile-abi",
@@ -306,6 +307,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = "GLTutorial-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = GLTutorial;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -321,7 +323,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -333,7 +335,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};

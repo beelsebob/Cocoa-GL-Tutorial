@@ -18,6 +18,8 @@ typedef struct
 
 @interface GLTutorialController ()
 
+- (void)createOpenGLView;
+
 - (void)createDisplayLink;
 
 - (void)createOpenGLResources;
@@ -41,16 +43,54 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     return kCVReturnSuccess;
 }
 
+@interface GLTutorialController ()
+
+@property (readwrite, assign) GLuint shaderProgram;
+@property (readwrite, assign) GLuint vertexArrayObject;
+@property (readwrite, assign) GLuint vertexBuffer;
+
+@property (readwrite, assign) GLint positionUniform;
+@property (readwrite, assign) GLint colourAttribute;
+@property (readwrite, assign) GLint positionAttribute;
+
+@end
+
 @implementation GLTutorialController
+{
+    CVDisplayLinkRef displayLink;
+}
 
 @synthesize view;
+@synthesize window;
+
+@synthesize shaderProgram;
+@synthesize vertexArrayObject;
+@synthesize vertexBuffer;
+@synthesize positionUniform;
+@synthesize colourAttribute;
+@synthesize positionAttribute;
 
 - (void)awakeFromNib
 {
-    isFirstRender = YES;
-    
+    [self createOpenGLView];
     [self createOpenGLResources];
     [self createDisplayLink];
+}
+
+- (void)createOpenGLView
+{
+    NSOpenGLPixelFormatAttribute pixelFormatAttributes[] =
+    {
+        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
+        NSOpenGLPFAColorSize    , 24                           ,
+        NSOpenGLPFAAlphaSize    , 8                            ,
+        NSOpenGLPFADoubleBuffer ,
+        NSOpenGLPFAAccelerated  ,
+        0
+    };
+    NSOpenGLPixelFormat *pixelFormat = [[[NSOpenGLPixelFormat alloc] initWithAttributes:pixelFormatAttributes] autorelease];
+    [self setView:[[[NSOpenGLView alloc] initWithFrame:[[[self window] contentView] bounds] pixelFormat:pixelFormat] autorelease]];
+    [[[self window] contentView] addSubview:[self view]];
 }
 
 - (void)createDisplayLink
@@ -73,7 +113,6 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 - (void)createOpenGLResources
 {
     [[[self view] openGLContext] makeCurrentContext];
-    
     [self loadShader];
     [self loadBufferData];
 }
@@ -88,31 +127,33 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     if (0 != vertexShader && 0 != fragmentShader)
     {
-        shaderProgram = glCreateProgram();
+        [self setShaderProgram:glCreateProgram()];
         GetError();
         
-        glAttachShader(shaderProgram, vertexShader  );
+        glAttachShader([self shaderProgram], vertexShader  );
         GetError();
-        glAttachShader(shaderProgram, fragmentShader);
+        glAttachShader([self shaderProgram], fragmentShader);
         GetError();
         
-        [self linkProgram:shaderProgram];
+        glBindFragDataLocation([self shaderProgram], 0, "fragColour");
         
-        positionUniform   = glGetUniformLocation(shaderProgram, "p"       );
+        [self linkProgram:[self shaderProgram]];
+        
+        [self setPositionUniform:glGetUniformLocation([self shaderProgram], "p")];
         GetError();
-        if (positionUniform < 0)
+        if ([self positionUniform] < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
         }
-        colourAttribute   = glGetAttribLocation(shaderProgram, "colour"  );
+        [self setColourAttribute:glGetAttribLocation([self shaderProgram], "colour")];
         GetError();
-        if (colourAttribute < 0)
+        if ([self colourAttribute] < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
         }
-        positionAttribute = glGetAttribLocation(shaderProgram, "position");
+        [self setPositionAttribute:glGetAttribLocation([self shaderProgram], "position")];
         GetError();
-        if (positionAttribute < 0)
+        if ([self positionAttribute] < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
         }
@@ -237,34 +278,34 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
         { .position = { .x= 0.5, .y=-0.5, .z=0.0, .w=1.0 }, .colour = { .r=1.0, .g=1.0, .b=1.0, .a=1.0 } }
     };
     
-    glGenBuffers(1, &vertexBuffer);
+    GLuint vao;
+    glGenVertexArrays(1, &vao);
     GetError();
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    [self setVertexArrayObject:vao];
+    glBindVertexArray([self vertexArrayObject]);
+    GetError();
+    
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
+    GetError();
+    [self setVertexBuffer:vbo];
+    glBindBuffer(GL_ARRAY_BUFFER, [self vertexBuffer]);
     GetError();
     glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), vertexData, GL_STATIC_DRAW);
     GetError();
     
-    glEnableVertexAttribArray((GLuint)positionAttribute);
+    glEnableVertexAttribArray((GLuint)[self positionAttribute]);
     GetError();
-    glEnableVertexAttribArray((GLuint)colourAttribute  );
+    glEnableVertexAttribArray((GLuint)[self colourAttribute]  );
     GetError();
-    glVertexAttribPointer((GLuint)positionAttribute, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, position));
+    glVertexAttribPointer((GLuint)[self positionAttribute], 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, position));
     GetError();
-    glVertexAttribPointer((GLuint)colourAttribute  , 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, colour  ));
+    glVertexAttribPointer((GLuint)[self colourAttribute]  , 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, colour  ));
     GetError();
 }
 
 - (void)renderForTime:(CVTimeStamp)time
 {
-    if (!isFirstRender)
-    {
-        [[[self view] openGLContext] flushBuffer];
-    }
-    else
-    {
-        isFirstRender = NO;
-    }
-    
     [[[self view] openGLContext] makeCurrentContext];
     
     glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -272,24 +313,28 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     glClear(GL_COLOR_BUFFER_BIT);
     GetError();
     
-    glUseProgram(shaderProgram);
+    glUseProgram([self shaderProgram]);
     GetError();
     
     GLfloat timeValue = (GLfloat)(time.videoTime) / (GLfloat)(time.videoTimeScale);
     Vector2 p = { .x = 0.5f * sinf(timeValue), .y = 0.5f * cosf(timeValue) };
-    glUniform2fv(positionUniform, 1, (const GLfloat *)&p);
+    glUniform2fv([self positionUniform], 1, (const GLfloat *)&p);
     GetError();
     
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     GetError();
+
+    [[[self view] openGLContext] flushBuffer];
 }
 
 - (void)dealloc
 {
-    glDeleteProgram(shaderProgram);
+    glDeleteProgram([self shaderProgram]);
     GetError();
-    glDeleteBuffers(1, &vertexBuffer);
+    GLuint vbo = [self vertexBuffer];
+    glDeleteBuffers(1, &vbo);
     GetError();
+    [self setVertexBuffer:vbo];
     
     CVDisplayLinkStop(displayLink);
     CVDisplayLinkRelease(displayLink);
