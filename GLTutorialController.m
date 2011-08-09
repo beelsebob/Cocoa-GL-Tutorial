@@ -43,32 +43,21 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     return kCVReturnSuccess;
 }
 
-@interface GLTutorialController ()
-
-@property (readwrite, assign) GLuint shaderProgram;
-@property (readwrite, assign) GLuint vertexArrayObject;
-@property (readwrite, assign) GLuint vertexBuffer;
-
-@property (readwrite, assign) GLint positionUniform;
-@property (readwrite, assign) GLint colourAttribute;
-@property (readwrite, assign) GLint positionAttribute;
-
-@end
-
 @implementation GLTutorialController
 {
     CVDisplayLinkRef displayLink;
+    
+    GLuint shaderProgram;
+    GLuint vertexArrayObject;
+    GLuint vertexBuffer;
+    
+    GLint positionUniform;
+    GLint colourAttribute;
+    GLint positionAttribute;
 }
 
 @synthesize view;
 @synthesize window;
-
-@synthesize shaderProgram;
-@synthesize vertexArrayObject;
-@synthesize vertexBuffer;
-@synthesize positionUniform;
-@synthesize colourAttribute;
-@synthesize positionAttribute;
 
 - (void)awakeFromNib
 {
@@ -127,33 +116,33 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     
     if (0 != vertexShader && 0 != fragmentShader)
     {
-        [self setShaderProgram:glCreateProgram()];
+        shaderProgram = glCreateProgram();
         GetError();
         
-        glAttachShader([self shaderProgram], vertexShader  );
+        glAttachShader(shaderProgram, vertexShader  );
         GetError();
-        glAttachShader([self shaderProgram], fragmentShader);
+        glAttachShader(shaderProgram, fragmentShader);
         GetError();
         
-        glBindFragDataLocation([self shaderProgram], 0, "fragColour");
+        glBindFragDataLocation(shaderProgram, 0, "fragColour");
         
-        [self linkProgram:[self shaderProgram]];
+        [self linkProgram:shaderProgram];
         
-        [self setPositionUniform:glGetUniformLocation([self shaderProgram], "p")];
+        positionUniform = glGetUniformLocation(shaderProgram, "p");
         GetError();
-        if ([self positionUniform] < 0)
+        if (positionUniform < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
         }
-        [self setColourAttribute:glGetAttribLocation([self shaderProgram], "colour")];
+        colourAttribute = glGetAttribLocation(shaderProgram, "colour");
         GetError();
-        if ([self colourAttribute] < 0)
+        if (colourAttribute < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
         }
-        [self setPositionAttribute:glGetAttribLocation([self shaderProgram], "position")];
+        positionAttribute = glGetAttribLocation(shaderProgram, "position");
         GetError();
-        if ([self positionAttribute] < 0)
+        if (positionAttribute < 0)
         {
             [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
         }
@@ -278,29 +267,25 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
         { .position = { .x= 0.5, .y=-0.5, .z=0.0, .w=1.0 }, .colour = { .r=1.0, .g=1.0, .b=1.0, .a=1.0 } }
     };
     
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
+    glGenVertexArrays(1, &vertexArrayObject);
     GetError();
-    [self setVertexArrayObject:vao];
-    glBindVertexArray([self vertexArrayObject]);
+    glBindVertexArray(vertexArrayObject);
     GetError();
     
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
+    glGenBuffers(1, &vertexBuffer);
     GetError();
-    [self setVertexBuffer:vbo];
-    glBindBuffer(GL_ARRAY_BUFFER, [self vertexBuffer]);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     GetError();
     glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), vertexData, GL_STATIC_DRAW);
     GetError();
     
-    glEnableVertexAttribArray((GLuint)[self positionAttribute]);
+    glEnableVertexAttribArray((GLuint)positionAttribute);
     GetError();
-    glEnableVertexAttribArray((GLuint)[self colourAttribute]  );
+    glEnableVertexAttribArray((GLuint)colourAttribute  );
     GetError();
-    glVertexAttribPointer((GLuint)[self positionAttribute], 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, position));
+    glVertexAttribPointer((GLuint)positionAttribute, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, position));
     GetError();
-    glVertexAttribPointer((GLuint)[self colourAttribute]  , 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, colour  ));
+    glVertexAttribPointer((GLuint)colourAttribute  , 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)offsetof(Vertex, colour  ));
     GetError();
 }
 
@@ -313,12 +298,12 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
     glClear(GL_COLOR_BUFFER_BIT);
     GetError();
     
-    glUseProgram([self shaderProgram]);
+    glUseProgram(shaderProgram);
     GetError();
     
     GLfloat timeValue = (GLfloat)(time.videoTime) / (GLfloat)(time.videoTimeScale);
     Vector2 p = { .x = 0.5f * sinf(timeValue), .y = 0.5f * cosf(timeValue) };
-    glUniform2fv([self positionUniform], 1, (const GLfloat *)&p);
+    glUniform2fv(positionUniform, 1, (const GLfloat *)&p);
     GetError();
     
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
@@ -329,12 +314,10 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
 
 - (void)dealloc
 {
-    glDeleteProgram([self shaderProgram]);
+    glDeleteProgram(shaderProgram);
     GetError();
-    GLuint vbo = [self vertexBuffer];
-    glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &vertexBuffer);
     GetError();
-    [self setVertexBuffer:vbo];
     
     CVDisplayLinkStop(displayLink);
     CVDisplayLinkRelease(displayLink);

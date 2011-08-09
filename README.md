@@ -158,39 +158,39 @@ If we successfully compiled the code, we create a program, add the vertex and fr
 
         if (0 != vertexShader && 0 != fragmentShader)
         {
-            [self setShaderProgram:glCreateProgram()];
+            shaderProgram = glCreateProgram();
             GetError();
             
-            glAttachShader([self shaderProgram], vertexShader  );
+            glAttachShader(shaderProgram, vertexShader  );
             GetError();
-            glAttachShader([self shaderProgram], fragmentShader);
+            glAttachShader(shaderProgram, fragmentShader);
             GetError();
 
 We then tell OpenGL which of our colour buffers to put the fragment shader's output in.  By specifying 0 we ask for the 0th colour buffer, which by default is the back buffer for our view:
 
-            glBindFragDataLocation([self shaderProgram], 0, "fragColour");
+            glBindFragDataLocation(shaderProgram, 0, "fragColour");
 
 We then link the program we've created.
 
-            [self linkProgram:[self shaderProgram]];
+            [self linkProgram:shaderProgram];
 
 Once we have linked the program, we ask OpenGL to tell us about the uniforms and attributes in our programs.  We'll use these values later to tell OpenGL which bits of our mesh data mean what.
 
-            [self setPositionUniform:glGetUniformLocation([self shaderProgram], "p")];
+            positionUniform = glGetUniformLocation(shaderProgram, "p");
             GetError();
-            if ([self positionUniform] < 0)
+            if (positionUniform < 0)
             {
                 [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'p' uniform."];
             }
-            [self setColourAttribute:glGetAttribLocation([self shaderProgram], "colour")];
+            colourAttribute = glGetAttribLocation(shaderProgram, "colour");
             GetError();
-            if ([self colourAttribute] < 0)
+            if (colourAttribute < 0)
             {
                 [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'colour' attribute."];
             }
-            [self setPositionAttribute:glGetAttribLocation([self shaderProgram], "position")];
+            positionAttribute = glGetAttribLocation(shaderProgram, "position");
             GetError();
-            if ([self positionAttribute] < 0)
+            if (positionAttribute < 0)
             {
                 [NSException raise:kFailedToInitialiseGLException format:@"Shader did not contain the 'position' attribute."];
             }
