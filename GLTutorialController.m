@@ -75,6 +75,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *inNow,
         NSOpenGLPFAAlphaSize    , 8                            ,
         NSOpenGLPFADoubleBuffer ,
         NSOpenGLPFAAccelerated  ,
+        NSOpenGLPFANoRecovery   ,
         0
     };
     NSOpenGLPixelFormat *pixelFormat = [[[NSOpenGLPixelFormat alloc] initWithAttributes:pixelFormatAttributes] autorelease];
