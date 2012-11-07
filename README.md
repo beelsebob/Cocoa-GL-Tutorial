@@ -393,7 +393,7 @@ Finally, we tell OpenGL to actually draw the data in our array.  We draw a trian
 
 So you've got your first quad drawing, where do you go next?
 
-* Take a look at my [second tutorial](http://www.github.org/beelsebob/Cocoa-GL-Tutorial-2), which covers adding texturing.
+* Take a look at my [second tutorial](http://www.github.com/beelsebob/Cocoa-GL-Tutorial-2), which covers adding texturing.
 * Discussing things on IRC can be useful.  I recommend ##opengl on irc.freenode.org.
 * Playing with the shader program will let you quickly generate different effects.
 * Reading more tutorials is a good next step.  Make sure you stick with tutorials that use modern OpenGL, there's a lot out there that use old deprecated code.  I'd recommend the [ArcSynthesis](http://www.arcsynthesis.org/gltut/) tutorial if you have OpenGL 3 capable hardware.
